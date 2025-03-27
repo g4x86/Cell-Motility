@@ -1,0 +1,10 @@
+The ranges of Actin, ARP23 and CAP concentrations
+
+[Actin]:   20.000000
+[ARP23]:    0.040000
+[CAP]:      0.040000
+
+A series of simulation with various ARP23 and CAP concentrations
+
+Cond       [Actin]       [ARP23]        [CAP]
+ 01      20.000000      0.040000      0.040000
