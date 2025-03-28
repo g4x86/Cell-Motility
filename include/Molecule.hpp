@@ -4,6 +4,7 @@
 #include <cmath>
 #include <iostream>
 #include <string>
+#include <list>
 #include <Coordinate.hpp>
 
 namespace motility
@@ -74,6 +75,13 @@ class Molecule
 
 	friend std::ostream& operator<<(std::ostream& os, const Molecule& m);
 };
+
+typedef std::list<Molecule> Molecules;
+typedef Molecules::iterator MoleculeHandle;
+typedef Molecules::const_iterator MoleculeConstHandle;
+
+inline MoleculeHandle molecule_sentinel {};
+inline MoleculeConstHandle molecule_const_sentinel {};
 
 }
 

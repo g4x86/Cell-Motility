@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <cmath>
 #include <typedefs.hpp>
+#include <FilamentBranch.hpp>
 #include <DiscreteEvent.hpp>
 #include <MotileCell.hpp>
 #include <UniformMolecularDistribution.hpp>

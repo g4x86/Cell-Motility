@@ -137,7 +137,7 @@ VertexHandles SurfaceTopology::updateLocalSurface(VertexHandle vertex_handle)
 		EdgeHandle prev_dual = prev_edge->dual;
 		FacetHandle curr_facet = curr_edge->facet;
 		// Step #1: Check whether there is a neighboring facet.
-		if(prev_dual != static_cast<EdgeHandle>(nullptr))
+		if(prev_dual != edge_sentinel)
 		{
 			// Step #2: Check whether V1 is inside the positive side of
 			// the neighboring facet.
@@ -185,7 +185,7 @@ VertexHandles SurfaceTopology::updateLocalSurface(VertexHandle child_vertex_hand
 	// Step #1: Check whether the child filament intersects with the given
 	// starting facet.
 	FacetHandle intersecting_facet_handle = getIntersectingFacetHandle(*(child_vertex_handle->filament), start_facet_handle);
-	if(intersecting_facet_handle != static_cast<FacetHandle>(nullptr))
+	if(intersecting_facet_handle != facet_sentinel)
 	{
 		// Step #2: If the child filament intersects with the given starting
 		// facet, check whether the child vertex is located in the positive
@@ -207,7 +207,7 @@ VertexHandles SurfaceTopology::updateLocalSurface(VertexHandle child_vertex_hand
 		}
 		// Step #3: If the child vertex is located within the positive region
 		// of the neighboring facets, find out the closest neighboring facet.
-		FacetHandle closest_facet_handle = static_cast<FacetHandle>(nullptr);
+		FacetHandle closest_facet_handle = facet_sentinel;
 		double closest_distance = DBL_INF_POSITIVE;
 		if(!candidate_facet_handles.empty())
 		{
@@ -225,7 +225,7 @@ VertexHandles SurfaceTopology::updateLocalSurface(VertexHandle child_vertex_hand
 				}
 			}
 		}
-		if(closest_facet_handle != static_cast<FacetHandle>(nullptr) && closest_distance <= intersecting_distance)
+		if(closest_facet_handle != facet_sentinel && closest_distance <= intersecting_distance)
 		{
 			// Step #4: If the closest facet is not further from the child vertex
 			// than the intersecting facet, the intersecting facet and the closest
@@ -674,7 +674,7 @@ bool SurfaceTopology::triangulatePolygonSurface(VertexHandles polygon_vertices)
 			{
 				VertexHandle begin_vertex_handle = (*ehh)->prev->vertex;
 				// Prerequisite #2
-				if(begin_vertex_handle == *vhh1 && (*ehh)->dual == static_cast<EdgeHandle>(nullptr)) neighboring_edge_flag = true;
+				if(begin_vertex_handle == *vhh1 && (*ehh)->dual == edge_sentinel) neighboring_edge_flag = true;
 			}
 			if(!neighboring_edge_flag)
 			{
@@ -1102,7 +1102,7 @@ bool SurfaceTopology::addFacet(VertexHandle vh1, VertexHandle vh2, VertexHandle 
 		{
 			for(EdgeHandleHandle ehh = ((vhs[i])->edges).begin(); ehh != ((vhs[i])->edges).end(); ++ehh)
 			{
-				if((*ehh)->prev->vertex == vhs[j] && (*ehh)->dual != static_cast<EdgeHandle>(nullptr))
+				if((*ehh)->prev->vertex == vhs[j] && (*ehh)->dual != edge_sentinel)
 				{
 					eligibility = false;
 					break;
@@ -1241,9 +1241,9 @@ void SurfaceTopology::removeFacet(FacetHandle fh)
 	{
 		// Remove the pointer to current edge from the 'dual'
 		// field of its dual edge.
-		if(facet_edges[i]->dual != static_cast<EdgeHandle>(nullptr))
+		if(facet_edges[i]->dual != edge_sentinel)
 		{
-			facet_edges[i]->dual->dual = static_cast<EdgeHandle>(nullptr);
+			facet_edges[i]->dual->dual = edge_sentinel;
 		}
 		// Remove the pointer to current edge from the 'edges'
 		// field of the pointed vertex.
@@ -1292,7 +1292,7 @@ VertexHandles SurfaceTopology::removeVertex(VertexHandle vh)
 	///
 	// Make sure that the actin filament that the given vertex to be
 	// removed is based on does exist.
-	assert(vh->filament != static_cast<FilamentBranchHandle>(nullptr));
+	assert(vh->filament != filament_branch_sentinel);
 	// Store all neighboring vertices of the given vertex.
 	VertexHandles polygon_vertices = getNeighboringVertexHandles(vh);
 	// Remove all incident facets of the given vertex.
@@ -1309,7 +1309,7 @@ VertexHandles SurfaceTopology::removeVertex(VertexHandle vh)
 		removeFacet((*ehh_removed )->facet);
 	}
 	// Remove the vertex link from the corresponding actin filament.
-	vh->filament->setVertex(static_cast<VertexHandle>(nullptr));
+	vh->filament->setVertex(vertex_sentinel);
 	// If the vertex to be removed is not capped, subtract the
 	// number of uncapped actin filaments by 1.
 	if(!vh->filament->isCapped()) --n_uncapped_vertex;
@@ -1354,7 +1354,7 @@ VertexHandles SurfaceTopology::getNeighboringVertexHandles(VertexHandle vertex_h
 		EdgeHandle curr_edge = (*ehh);
 		EdgeHandle next_edge = curr_edge->next;
 		EdgeHandle next_dual = next_edge->dual;
-		if(next_dual == static_cast<EdgeHandle>(nullptr)) neighboring_vertices.push_back(next_edge->vertex);
+		if(next_dual == edge_sentinel) neighboring_vertices.push_back(next_edge->vertex);
 		neighboring_vertices.push_back(curr_edge->prev->vertex);
 	}
 	return neighboring_vertices;
@@ -1558,9 +1558,9 @@ bool SurfaceTopology::isBranchingAllowed(FilamentBranch& branch)
 	// Rule 2. The child filament must intersect with neighboring
 	// facet.
 	bool branching_flag = false;
-	FacetHandle selected_branching_facet = static_cast<FacetHandle>(nullptr);
+	FacetHandle selected_branching_facet = facet_sentinel;
 	Orientation selected_branching_orient;
-	if(branch.getBranchingSiteActinConstHandle() != static_cast<ActinConstHandle>(nullptr))
+	if(branch.getBranchingSiteActinConstHandle() != actin_sentinel)
 	{
 		ParameterTable::Table& param_table = ParameterTable::instance();
 		double cortical_region_thickness = strtod(param_table[std::string("cortical_region_thickness")]);
@@ -1625,7 +1625,7 @@ bool SurfaceTopology::isBranchingAllowed(FilamentBranch& branch)
 
 FacetHandle SurfaceTopology::getIntersectingFacetHandle(FilamentBranch& branch, FacetHandle start_facet_handle)
 {
-	FacetHandle intersecting_facet_handle = static_cast<FacetHandle>(nullptr);
+	FacetHandle intersecting_facet_handle = facet_sentinel;
 	Line l(branch.getHeadEndLocation(), branch.getTailEndLocation());
 	Triangle t;
 	t = start_facet_handle->getTriangle();

@@ -1,6 +1,7 @@
 #ifndef ADF_HPP_
 #define ADF_HPP_
 
+#include <typedefs.hpp>
 #include <Molecule.hpp>
 
 namespace motility
@@ -19,6 +20,9 @@ class ADF : public Molecule
 	// getState() and setState(), and override those virtual
 	// member functions in base class.
 };
+
+inline ADFHandle adf_sentinel {};
+inline ADFConstHandle adf_const_sentinel {};
 
 }
 

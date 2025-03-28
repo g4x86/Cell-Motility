@@ -64,20 +64,20 @@ bool Vertex::operator!=(const Vertex& v) const
 
 Edge::Edge()
 {
-	vertex = static_cast<VertexHandle>(nullptr);
-	prev = static_cast<EdgeHandle>(nullptr);
-	next = static_cast<EdgeHandle>(nullptr);
-	dual = static_cast<EdgeHandle>(nullptr);
-	facet = static_cast<FacetHandle>(nullptr);
+	vertex = vertex_sentinel;
+	prev = edge_sentinel;
+	next = edge_sentinel;
+	dual = edge_sentinel;
+	facet = facet_sentinel;
 }
 
 Edge::Edge(const VertexHandle& v)
 {
 	vertex = v;
-	prev = static_cast<EdgeHandle>(nullptr);
-	next = static_cast<EdgeHandle>(nullptr);
-	dual = static_cast<EdgeHandle>(nullptr);
-	facet = static_cast<FacetHandle>(nullptr);
+	prev = edge_sentinel;
+	next = edge_sentinel;
+	dual = edge_sentinel;
+	facet = facet_sentinel;
 }
 
 VertexHandle Edge::getVertex() const

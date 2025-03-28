@@ -3,6 +3,7 @@
 
 #include <cfloat>
 #include <cmath>
+#include <list>
 #include <iostream>
 
 namespace motility
@@ -154,6 +155,41 @@ struct GridCoordinate
 
 	GridCoordinate(size_t ii = 0, size_t jj = 0, size_t kk = 0);
 };
+
+typedef std::list<CartesianCoordinate> CartesianCoordinates;
+typedef CartesianCoordinates::iterator CartesianCoordinateHandle;
+typedef CartesianCoordinates::const_iterator CartesianCoordinateConstHandle;
+
+inline CartesianCoordinateHandle cartesian_coordinate_sentinel {};
+inline CartesianCoordinateConstHandle cartesian_coordinate_const_sentinel {};
+
+typedef std::list<SphericalCoordinate> SphericalCoordinates;
+typedef SphericalCoordinates::iterator SphericalCoordinateHandle;
+typedef SphericalCoordinates::const_iterator SphericalCoordinateConstHandle;
+
+inline SphericalCoordinateHandle spherical_coordinate_sentinel {};
+inline SphericalCoordinateConstHandle spherical_coordinate_const_sentinel {};
+
+typedef std::list<CylindricalCoordinate> CylindricalCoordinates;
+typedef CylindricalCoordinates::iterator CylindricalCoordinateHandle;
+typedef CylindricalCoordinates::const_iterator CylindricalCoordinateConstHandle;
+
+inline CylindricalCoordinateHandle cylindrical_coordinate_sentinel {};
+inline CylindricalCoordinateConstHandle cylindrical_coordinate_const_sentinel {};
+
+typedef std::list<Orientation> Orientations;
+typedef Orientations::iterator OrientationHandle;
+typedef Orientations::const_iterator OrientationConstHandle;
+
+inline OrientationHandle orientation_sentinel {};
+inline OrientationConstHandle orientation_const_sentinel {};
+
+typedef std::list<GridCoordinate> GridCoordinates;
+typedef GridCoordinates::iterator GridCoordinateHandle;
+typedef GridCoordinates::const_iterator GridCoordinateConstHandle;
+
+inline GridCoordinateHandle grid_coordinate_sentinel {};
+inline GridCoordinateConstHandle grid_coordinate_const_sentinel {};
 
 }
 

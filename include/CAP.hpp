@@ -1,6 +1,7 @@
 #ifndef CAP_HPP_
 #define CAP_HPP_
 
+#include <typedefs.hpp>
 #include <Molecule.hpp>
 
 namespace motility
@@ -19,6 +20,9 @@ class CAP : public Molecule
 	// getState() and setState(), and override those virtual
 	// member functions in base class.
 };
+
+inline CAPHandle cap_sentinel {};
+inline CAPConstHandle cap_const_sentinel {};
 
 }
 

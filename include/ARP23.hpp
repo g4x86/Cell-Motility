@@ -1,6 +1,7 @@
 #ifndef ARP23_HPP_
 #define ARP23_HPP_
 
+#include <typedefs.hpp>
 #include <Molecule.hpp>
 
 namespace motility
@@ -19,6 +20,9 @@ class ARP23 : public Molecule
 	// getState() and setState(), and override those virtual
 	// member functions in base class.
 };
+
+inline ARP23Handle arp23_sentinel {};
+inline ARP23ConstHandle arp23_const_sentinel {};
 
 }
 

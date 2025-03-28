@@ -11,18 +11,18 @@ namespace motility
 
 FilamentBranch::FilamentBranch()
 {
-	vertex = static_cast<VertexHandle>(nullptr);
+	vertex = vertex_sentinel;
 	membrane_attachment = false;
 	membrane_linkage = false;
 	arp23_handle = nullptr;
 	cap_handle = nullptr;
-	tree_handle = static_cast<BranchTreeHandle>(nullptr);
-	parent_handle = static_cast<FilamentBranchHandle>(nullptr);
+	tree_handle = branch_tree_sentinel;
+	parent_handle = filament_branch_sentinel;
 	nth_child_of_parent = 0;
 	branching_angle = 0;
 	initial_length = 0;
 	child_branching_flag = false;
-	child_branch_facet = static_cast<FacetHandle>(nullptr);
+	child_branch_facet = facet_sentinel;
 	virtual_tail_end = false;
 	virtual_tail_end_diameter = 0;
 }
@@ -32,11 +32,11 @@ FilamentBranch::FilamentBranch(const ARP23& arp23, const Actin& actin, const Ori
 	initializeMemory(arp23);
 	arp23_handle->immobilize();
 	orient = ot;
-	vertex = static_cast<VertexHandle>(nullptr);
+	vertex = vertex_sentinel;
 	membrane_attachment = false;
 	membrane_linkage = false;
-	tree_handle = static_cast<BranchTreeHandle>(nullptr);
-	parent_handle = static_cast<FilamentBranchHandle>(nullptr);
+	tree_handle = branch_tree_sentinel;
+	parent_handle = filament_branch_sentinel;
 	nth_child_of_parent = 0;
 	ParameterTable::Table& param_table = ParameterTable::instance();
 	double angle = strtod(param_table[std::string("branching_angle")]);
@@ -130,7 +130,7 @@ VertexHandle FilamentBranch::getVertex()
 void FilamentBranch::setVertex(VertexHandle vh)
 {
 	vertex = vh;
-	if(vertex != static_cast<VertexHandle>(nullptr)) membrane_attachment = true;
+	if(vertex != vertex_sentinel) membrane_attachment = true;
 	else membrane_attachment = false;
 }
 
@@ -436,14 +436,14 @@ ActinConstHandle FilamentBranch::getBranchingSiteActinConstHandle() const
 		ah = filament.end();
 		for(size_t i = 0; i < branching_site_location; i++) --ah;
 	}
-	else ah = static_cast<ActinConstHandle>(nullptr);
+	else ah = actin_sentinel;
 	return ah;
 }
 
 CartesianCoordinate FilamentBranch::getBranchingSiteActinLocation() const
 {
 	ActinConstHandle ah = getBranchingSiteActinConstHandle();
-	assert(ah != static_cast<ActinConstHandle>(nullptr));
+	assert(ah != actin_sentinel);
 	return ah->getLocation();
 }
 

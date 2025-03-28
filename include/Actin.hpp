@@ -1,6 +1,7 @@
 #ifndef ACTIN_HPP_
 #define ACTIN_HPP_
 
+#include <typedefs.hpp>
 #include <Molecule.hpp>
 
 namespace motility
@@ -24,6 +25,9 @@ class Actin : public Molecule
 
 	void setBoundState(const char* s);
 };
+
+inline ActinHandle actin_sentinel {};
+inline ActinConstHandle actin_const_sentinel {};
 
 }
 

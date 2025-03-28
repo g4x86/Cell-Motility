@@ -5,8 +5,10 @@
 #include <typedefs.hpp>
 #include <DiscreteEventSimulator.hpp>
 #include <BranchTree.hpp>
+#include <FilamentBranch.hpp>
 #include <UniformMolecularDistribution.hpp>
 #include <SurfaceTopology.hpp>
+#include <VertexEdgeFacet.hpp>
 
 namespace motility
 {

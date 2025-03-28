@@ -2,11 +2,11 @@
 #define FILAMENTBRANCH_HPP_
 
 #include <cassert>
-#include <list>
 #include <typedefs.hpp>
 #include <Actin.hpp>
 #include <ARP23.hpp>
 #include <CAP.hpp>
+#include <VertexEdgeFacet.hpp>
 #include <Vector.hpp>
 #include <Line.hpp>
 #include <DiscreteEvent.hpp>
@@ -224,6 +224,11 @@ class FilamentBranch
 
 	FilamentBranch& operator=(const FilamentBranch& fb);
 };
+
+inline FilamentBranchHandle filament_branch_sentinel {};
+inline FilamentBranchConstHandle filament_branch_const_sentinel {};
+inline FilamentBranchHandleHandle filament_branch_handle_sentinel {};
+inline FilamentBranchHandleConstHandle filament_branch_handle_const_sentinel {};
 
 }
 

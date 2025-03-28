@@ -21,6 +21,7 @@ endif()
 
 # Source files
 set(PROJECT_SOURCES
+    ${PROJECT_SOURCE_DIR}/include/typedefs.hpp
     ${PROJECT_SOURCE_DIR}/include/Actin.hpp
     ${PROJECT_SOURCE_DIR}/include/ADF.hpp
     ${PROJECT_SOURCE_DIR}/include/algorithms.hpp
@@ -51,7 +52,6 @@ set(PROJECT_SOURCES
     ${PROJECT_SOURCE_DIR}/include/SurfaceTopology.hpp
     ${PROJECT_SOURCE_DIR}/include/TokenIterator.hpp
     ${PROJECT_SOURCE_DIR}/include/Triangle.hpp
-    ${PROJECT_SOURCE_DIR}/include/typedefs.hpp
     ${PROJECT_SOURCE_DIR}/include/UniformMolecularDistributionFunction.hpp
     ${PROJECT_SOURCE_DIR}/include/UniformMolecularDistribution.hpp
     ${PROJECT_SOURCE_DIR}/include/Vector.hpp

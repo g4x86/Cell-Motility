@@ -9,7 +9,6 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
-#include <typedefs.hpp>
 #include <constants.hpp>
 #include <algorithms.hpp>
 #include <InputFile.hpp>

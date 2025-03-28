@@ -44,6 +44,11 @@ class BranchTree
 	FilamentBranchHandle getLastBranchHandle();
 };
 
+inline BranchTreeHandle branch_tree_sentinel {};
+inline BranchTreeConstHandle branch_tree_const_sentinel {};
+inline BranchTreeHandleHandle branch_tree_handle_sentinel {};
+inline BranchTreeHandleConstHandle branch_tree_handle_const_sentinel {};
+
 }
 
 #endif /*BRANCHTREE_HPP_*/

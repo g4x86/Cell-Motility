@@ -1,8 +1,6 @@
 #ifndef EVENT_HPP_
 #define EVENT_HPP_
 
-#include <typedefs.hpp>
-
 namespace simulation
 {
 

@@ -5,6 +5,7 @@
 #include <Coordinate.hpp>
 #include <Vector.hpp>
 #include <Triangle.hpp>
+#include <FilamentBranch.hpp>
 
 namespace motility
 {
@@ -148,6 +149,21 @@ class Facet
 
 	friend class SurfaceTopology;
 };
+
+inline VertexHandle vertex_sentinel {};
+inline VertexConstHandle vertex_const_sentinel {};
+inline VertexHandleHandle vertex_handle_sentinel {};
+inline VertexHandleConstHandle vertex_handle_const_sentinel {};
+
+inline EdgeHandle edge_sentinel {};
+inline EdgeConstHandle edge_const_sentinel {};
+inline EdgeHandleHandle edge_handle_sentinel {};
+inline EdgeHandleConstHandle edge_handle_const_sentinel {};
+
+inline FacetHandle facet_sentinel {};
+inline FacetConstHandle facet_const_sentinel {};
+inline FacetHandleHandle facet_handle_sentinel {};
+inline FacetHandleConstHandle facet_handle_const_sentinel {};
 
 }
 
