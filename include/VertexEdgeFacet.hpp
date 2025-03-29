@@ -150,20 +150,20 @@ class Facet
 	friend class SurfaceTopology;
 };
 
-inline VertexHandle vertex_sentinel {};
-inline VertexConstHandle vertex_const_sentinel {};
-inline VertexHandleHandle vertex_handle_sentinel {};
-inline VertexHandleConstHandle vertex_handle_const_sentinel {};
+inline VertexHandle vertex_handle_null {};
+inline VertexConstHandle vertex_const_handle_null {};
+inline VertexHandleHandle vertex_handle_handle_null {};
+inline VertexHandleConstHandle vertex_handle_const_handle_null {};
 
-inline EdgeHandle edge_sentinel {};
-inline EdgeConstHandle edge_const_sentinel {};
-inline EdgeHandleHandle edge_handle_sentinel {};
-inline EdgeHandleConstHandle edge_handle_const_sentinel {};
+inline EdgeHandle edge_handle_null {};
+inline EdgeConstHandle edge_const_handle_null {};
+inline EdgeHandleHandle edge_handle_handle_null {};
+inline EdgeHandleConstHandle edge_handle_const_handle_null {};
 
-inline FacetHandle facet_sentinel {};
-inline FacetConstHandle facet_const_sentinel {};
-inline FacetHandleHandle facet_handle_sentinel {};
-inline FacetHandleConstHandle facet_handle_const_sentinel {};
+inline FacetHandle facet_handle_null {};
+inline FacetConstHandle facet_const_handle_null {};
+inline FacetHandleHandle facet_handle_handle_null {};
+inline FacetHandleConstHandle facet_handle_const_handle_null {};
 
 }
 

@@ -64,20 +64,20 @@ bool Vertex::operator!=(const Vertex& v) const
 
 Edge::Edge()
 {
-	vertex = vertex_sentinel;
-	prev = edge_sentinel;
-	next = edge_sentinel;
-	dual = edge_sentinel;
-	facet = facet_sentinel;
+	vertex = vertex_handle_null;
+	prev = edge_handle_null;
+	next = edge_handle_null;
+	dual = edge_handle_null;
+	facet = facet_handle_null;
 }
 
 Edge::Edge(const VertexHandle& v)
 {
 	vertex = v;
-	prev = edge_sentinel;
-	next = edge_sentinel;
-	dual = edge_sentinel;
-	facet = facet_sentinel;
+	prev = edge_handle_null;
+	next = edge_handle_null;
+	dual = edge_handle_null;
+	facet = facet_handle_null;
 }
 
 VertexHandle Edge::getVertex() const

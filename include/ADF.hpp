@@ -21,8 +21,8 @@ class ADF : public Molecule
 	// member functions in base class.
 };
 
-inline ADFHandle adf_sentinel {};
-inline ADFConstHandle adf_const_sentinel {};
+inline ADFHandle adf_handle_null {};
+inline ADFConstHandle adf_const_handle_null {};
 
 }
 

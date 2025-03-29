@@ -26,8 +26,8 @@ class Actin : public Molecule
 	void setBoundState(const char* s);
 };
 
-inline ActinHandle actin_sentinel {};
-inline ActinConstHandle actin_const_sentinel {};
+inline ActinHandle actin_handle_null {};
+inline ActinConstHandle actin_const_handle_null {};
 
 }
 

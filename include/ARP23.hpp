@@ -21,8 +21,8 @@ class ARP23 : public Molecule
 	// member functions in base class.
 };
 
-inline ARP23Handle arp23_sentinel {};
-inline ARP23ConstHandle arp23_const_sentinel {};
+inline ARP23Handle arp23_handle_null {};
+inline ARP23ConstHandle arp23_const_handle_null {};
 
 }
 

@@ -160,36 +160,36 @@ typedef std::list<CartesianCoordinate> CartesianCoordinates;
 typedef CartesianCoordinates::iterator CartesianCoordinateHandle;
 typedef CartesianCoordinates::const_iterator CartesianCoordinateConstHandle;
 
-inline CartesianCoordinateHandle cartesian_coordinate_sentinel {};
-inline CartesianCoordinateConstHandle cartesian_coordinate_const_sentinel {};
+inline CartesianCoordinateHandle cartesian_coordinate_handle_null {};
+inline CartesianCoordinateConstHandle cartesian_coordinate_const_handle_null {};
 
 typedef std::list<SphericalCoordinate> SphericalCoordinates;
 typedef SphericalCoordinates::iterator SphericalCoordinateHandle;
 typedef SphericalCoordinates::const_iterator SphericalCoordinateConstHandle;
 
-inline SphericalCoordinateHandle spherical_coordinate_sentinel {};
-inline SphericalCoordinateConstHandle spherical_coordinate_const_sentinel {};
+inline SphericalCoordinateHandle spherical_coordinate_handle_null {};
+inline SphericalCoordinateConstHandle spherical_coordinate_const_handle_null {};
 
 typedef std::list<CylindricalCoordinate> CylindricalCoordinates;
 typedef CylindricalCoordinates::iterator CylindricalCoordinateHandle;
 typedef CylindricalCoordinates::const_iterator CylindricalCoordinateConstHandle;
 
-inline CylindricalCoordinateHandle cylindrical_coordinate_sentinel {};
-inline CylindricalCoordinateConstHandle cylindrical_coordinate_const_sentinel {};
+inline CylindricalCoordinateHandle cylindrical_coordinate_handle_null {};
+inline CylindricalCoordinateConstHandle cylindrical_coordinate_const_handle_null {};
 
 typedef std::list<Orientation> Orientations;
 typedef Orientations::iterator OrientationHandle;
 typedef Orientations::const_iterator OrientationConstHandle;
 
-inline OrientationHandle orientation_sentinel {};
-inline OrientationConstHandle orientation_const_sentinel {};
+inline OrientationHandle orientation_handle_null {};
+inline OrientationConstHandle orientation_const_handle_null {};
 
 typedef std::list<GridCoordinate> GridCoordinates;
 typedef GridCoordinates::iterator GridCoordinateHandle;
 typedef GridCoordinates::const_iterator GridCoordinateConstHandle;
 
-inline GridCoordinateHandle grid_coordinate_sentinel {};
-inline GridCoordinateConstHandle grid_coordinate_const_sentinel {};
+inline GridCoordinateHandle grid_coordinate_handle_null {};
+inline GridCoordinateConstHandle grid_coordinate_const_handle_null {};
 
 }
 

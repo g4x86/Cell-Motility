@@ -80,8 +80,8 @@ typedef std::list<Molecule> Molecules;
 typedef Molecules::iterator MoleculeHandle;
 typedef Molecules::const_iterator MoleculeConstHandle;
 
-inline MoleculeHandle molecule_sentinel {};
-inline MoleculeConstHandle molecule_const_sentinel {};
+inline MoleculeHandle molecule_handle_null {};
+inline MoleculeConstHandle molecule_const_handle_null {};
 
 }
 

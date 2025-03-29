@@ -56,7 +56,7 @@ void BranchTree::removeFilamentBranch(FilamentBranchHandle fbh)
 	//
 	// Set the filament pointer of the corresponding vertex, if it
 	// exists, to 0 before remove the actin filament.
-	if(fbh->getVertex() != vertex_sentinel) fbh->getVertex()->setFilament(filament_branch_sentinel);
+	if(fbh->getVertex() != vertex_handle_null) fbh->getVertex()->setFilament(filament_branch_handle_null);
 	// Now remove the given actin filament from the filament pool.
 	branches.erase(fbh);
 }
@@ -75,7 +75,7 @@ FilamentBranchHandle BranchTree::getFirstBranchHandle()
 {
 	FilamentBranchHandle fbh;
 	if(!branches.empty()) fbh = branches.begin();
-	else fbh = filament_branch_sentinel;
+	else fbh = filament_branch_handle_null;
 	return fbh;
 }
 
@@ -83,7 +83,7 @@ FilamentBranchHandle BranchTree::getLastBranchHandle()
 {
 	FilamentBranchHandle fbh;
 	if(!branches.empty()) fbh = (--branches.end());
-	else fbh = filament_branch_sentinel;
+	else fbh = filament_branch_handle_null;
 	return fbh;
 }
 

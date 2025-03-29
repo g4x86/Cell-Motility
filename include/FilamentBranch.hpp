@@ -225,10 +225,10 @@ class FilamentBranch
 	FilamentBranch& operator=(const FilamentBranch& fb);
 };
 
-inline FilamentBranchHandle filament_branch_sentinel {};
-inline FilamentBranchConstHandle filament_branch_const_sentinel {};
-inline FilamentBranchHandleHandle filament_branch_handle_sentinel {};
-inline FilamentBranchHandleConstHandle filament_branch_handle_const_sentinel {};
+inline FilamentBranchHandle filament_branch_handle_null {};
+inline FilamentBranchConstHandle filament_branch_const_handle_null {};
+inline FilamentBranchHandleHandle filament_branch_handle_handle_null {};
+inline FilamentBranchHandleConstHandle filament_branch_handle_const_handle_null {};
 
 }
 

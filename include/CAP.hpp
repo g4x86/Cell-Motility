@@ -21,8 +21,8 @@ class CAP : public Molecule
 	// member functions in base class.
 };
 
-inline CAPHandle cap_sentinel {};
-inline CAPConstHandle cap_const_sentinel {};
+inline CAPHandle cap_handle_null {};
+inline CAPConstHandle cap_const_handle_null {};
 
 }
 
