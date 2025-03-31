@@ -1,7 +1,7 @@
 # CMake configuration
 
 # Set CMake version
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.8)
 
 # Project name
 project(CellMotility
@@ -101,7 +101,7 @@ add_executable(${PROJECT_NAME}
 # a wide range of compilers and systems.
 set_target_properties(${PROJECT_NAME}
     PROPERTIES
-        CXX_STANDARD 20
+        CXX_STANDARD 17
         CXX_STANDARD_REQUIRED ON
         CXX_EXTENSIONS OFF
 )
