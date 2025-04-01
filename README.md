@@ -14,7 +14,7 @@ The pictures below show a schematic view of actin filament dynamics inside a cel
 
 ## Compiling Code
 
-To compile the source code, GCC version 9+, Clang version 5+, and CMake version 3.8+ are needed with the following steps:
+To compile the source code, GCC version 9+, Clang version 5+, and CMake version 3.8+ are requireded to support C++17 features and the compilation includes the following steps:
 
 1.  **Creating Build Directory**
 
